@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from django.urls import reverse
 from django.views import generic
+from django.views.generic import TemplateView
 
 from .models import Question, Choice
 
@@ -50,6 +51,9 @@ class DetailView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = "polls/results.html"
+
+class About(TemplateView):
+    template_name = "polls/about.html"
 
 def vote(request, question_id):
     
